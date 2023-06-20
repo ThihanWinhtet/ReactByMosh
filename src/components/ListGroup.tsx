@@ -1,26 +1,38 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let list = ["New York", "Paris", "Tokyo", "Koyto"];
+interface Props {
+  items: string[];
+  heading: string;
+  onSelected : (item : string) => void;
+  onSelectedIndex : (item : number) => number;
+}
+
+function ListGroup({ items, heading, onSelected, onSelectedIndex}: Props) {
   let [selectedIndex, setSelectedIndex] = useState(-1);
   return (
-    <ul className="list-group">
-      {list.map((item, index) => (
-        <li
-          className={
-            selectedIndex === index
-              ? "list-group-item active"
-              : "list-group-item "
-          }
-          key={item}
-          onClick={() => {
-            setSelectedIndex(index);
-          }}
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
+    <>
+      <h1>{heading}</h1>
+      <ul className="list-group">
+        {items.map((item, index) => (
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item "
+            }
+            key={item}
+            onClick={() => {
+                onSelected(item);
+                let inde = onSelectedIndex(index);
+                
+              setSelectedIndex(inde);
+            }}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
