@@ -1,13 +1,14 @@
 function ListGroup() {
+  let list = ["New York", "Paris", "Tokyo", "Koyto"];
   return (
     <>
-    <h1>Hello Lists</h1>
+      <h1>Hello Lists</h1>
       <ul className="list-group">
-        <li className="list-group-item">An item</li>
-        <li className="list-group-item">A second item</li>
-        <li className="list-group-item">A third item</li>
-        <li className="list-group-item">A fourth item</li>
-        <li className="list-group-item">And a fifth one</li>
+        {list.map((item) => (
+          <li className="list-group-item" key={item}>
+            {item}
+          </li>
+        ))}
       </ul>
     </>
   );
