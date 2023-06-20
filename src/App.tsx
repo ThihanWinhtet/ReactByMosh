@@ -1,12 +1,16 @@
+import { useState } from "react";
 import Button from "./components/Button";
-
+import ShowAlert from "./components/ShowAlert";
+import Alert from "./components/Alert";
 Button;
 
 function App() {
   // let list = ["New York", "Paris", "Tokyo", "Koyto"];
+  let [call, callnum] = useState(false);
   return (
     <div>
-      <Button color="danger">hello button</Button>
+      {call === true &&  <ShowAlert close={()=> callnum(false)}></ShowAlert>}
+      <Button color="danger"  click={()=> callnum(true)}>hello button</Button>
 
       {/* <ListGroup items={list} heading="Cities" onSelectedIndex={(item)=> item} onSelected={(item)=> console.log(item, 'lll')}/> */}
     </div>
