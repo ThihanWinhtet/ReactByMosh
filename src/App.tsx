@@ -3,31 +3,20 @@
 // import ListGroup from "./components/ListGroup";
 import { useState } from "react";
 import { produce } from "immer";
+import Cart from "./Cart";
+import NavBar from "./NavBar";
 
 function App() {
-  let [tag, setTag] = useState([
-    { id: 1, title: "bug1", fixed: false },
-    { id: 2, title: "bug1", fixed: false },
-  ]);
+  let [cartItems, setCartItem] = useState(['product1', 'product2']);
 
   let check = () => {
-    setTag(
-      produce((draf) => {
-        let bug = draf.find((bug) => bug.id == 1);
-
-        if (bug) bug.fixed = true;
-      })
-    );
   };
 
   return (
     <div>
-      {tag.map((bug) => (
-        <p key={bug.id}>
-          {bug.id}, {bug.fixed == true ? "fixed" : "new"}
-        </p>
-      ))}
-      <button onClick={check}> Check </button>
+      <NavBar cartItemCount={cartItems.length}></NavBar>
+      <Cart cartItem={cartItems} clear={()=> {setCartItem([])}}></Cart>
+      {/* <button onClick={check}> Check </button> */}
     </div>
   );
 }
