@@ -4,23 +4,28 @@
 import { useState } from "react";
 
 function App() {
-  let [drink, setDrink] = useState({
-    title: "Americano",
-    price: 5,
-  });
+  let [tag, setTag] = useState([
+    "happy",
+    "sad",
+    "depressed",
+    "suicidal taught",
+  ]);
 
-  const newDrink = () => {
-    const newDrink = {
-      ...drink,
-      price: 55,
-    };
-    setDrink(newDrink);
+  let check = () => {
+    // add
+    setTag([...tag, "suicided"]);
+
+    // remove
+    setTag(tag.filter((tag) => tag != "happy"));
+
+    // update
+    setTag(tag.map((tag) => (tag == "suicidal taught" ? "suicided" : tag)));
   };
 
   return (
     <div>
-      {drink.price}
-      <button onClick={newDrink}>newdrink</button>
+      {tag + " "}
+      <button onClick={check}> Check </button>
     </div>
   );
 }
