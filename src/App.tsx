@@ -4,19 +4,27 @@
 import { useState } from "react";
 import Like from "./components/Like/Like";
 
-
 function App() {
   let [clicked, setClick] = useState(false);
   return (
     <div>
-      
+      <Like
+        color={clicked ? "red" : "black"}
+        click={() => {
+          if (clicked === false) {
+            setClick(true);
+            console.log(clicked);
+          } else {
+            console.log(clicked);
+
+            setClick(false);
+          }
+        }}
+      ></Like>
     </div>
   );
 }
 export default App;
-
-
-
 
 // import Button from "./components/Button/Button";
 
@@ -27,7 +35,7 @@ export default App;
 //   // let [call, callnum] = useState(false);
 //   return (
 //     <div>
-      // <Button
+// <Button
 //         color="primary"
 //         click={() => {
 //           console.log("hello check");
@@ -44,6 +52,3 @@ export default App;
 //   );
 // }
 // export default App;
-
-
-
