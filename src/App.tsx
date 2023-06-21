@@ -7,16 +7,35 @@ import Cart from "./Cart";
 import NavBar from "./NavBar";
 
 function App() {
-  let [cartItems, setCartItem] = useState(['product1', 'product2']);
+  let [cartItems, setCartItem] = useState(["product1", "product2"]);
+  let [colorItems, setColor] = useState(["red", "white", "black", "brown"]);
 
   let check = () => {
+    setColor(produce(draf=>{
+
+      draf.pop();
+
+      draf.push('he');
+      draf.push('yo');
+      draf.pop();
+      draf.push('wo');
+      
+    }))
   };
 
   return (
     <div>
       <NavBar cartItemCount={cartItems.length}></NavBar>
-      <Cart cartItem={cartItems} clear={()=> {setCartItem([])}}></Cart>
-      {/* <button onClick={check}> Check </button> */}
+      <Cart
+        cartItem={cartItems}
+        clear={() => {
+          setCartItem([]);
+        }}
+      ></Cart>
+
+      <br />
+      {colorItems + ''}
+      <button onClick={check}> Check </button>
     </div>
   );
 }

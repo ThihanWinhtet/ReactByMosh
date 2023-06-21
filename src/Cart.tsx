@@ -9,7 +9,7 @@ const Cart = ({cartItem, clear} : Props) => {
     <>
     <div>Cart</div>
     <ul>
-        {cartItem.map(item=> <p>{item}</p>)}
+        {cartItem.map(item=> <p key={item}>{item}</p>)}
     </ul>
     <button onClick={clear}>clear</button>
     </>
