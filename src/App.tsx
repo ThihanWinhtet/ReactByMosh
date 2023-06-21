@@ -2,29 +2,31 @@
 // import ShowAlert from "./components/ShowAlert";
 // import ListGroup from "./components/ListGroup";
 import { useState } from "react";
+import { produce } from "immer";
 
 function App() {
   let [tag, setTag] = useState([
-    "happy",
-    "sad",
-    "depressed",
-    "suicidal taught",
+    { id: 1, title: "bug1", fixed: false },
+    { id: 2, title: "bug1", fixed: false },
   ]);
 
   let check = () => {
-    // add
-    setTag([...tag, "suicided"]);
+    setTag(
+      produce((draf) => {
+        let bug = draf.find((bug) => bug.id == 1);
 
-    // remove
-    setTag(tag.filter((tag) => tag != "happy"));
-
-    // update
-    setTag(tag.map((tag) => (tag == "suicidal taught" ? "suicided" : tag)));
+        if (bug) bug.fixed = true;
+      })
+    );
   };
 
   return (
     <div>
-      {tag + " "}
+      {tag.map((bug) => (
+        <p key={bug.id}>
+          {bug.id}, {bug.fixed == true ? "fixed" : "new"}
+        </p>
+      ))}
       <button onClick={check}> Check </button>
     </div>
   );
