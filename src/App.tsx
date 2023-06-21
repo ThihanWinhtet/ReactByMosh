@@ -2,13 +2,34 @@
 // import ShowAlert from "./components/ShowAlert";
 // import ListGroup from "./components/ListGroup";
 import { useState } from "react";
-import Like from "./components/Like/Like";
 
 function App() {
-  let [clicked, setClick] = useState(false);
+  let [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  });
+
+  const newDrink = () => {
+    const newDrink = {
+      ...drink,
+      price: 55,
+    };
+    setDrink(newDrink);
+  };
+
   return (
     <div>
-      <Like
+      {drink.price}
+      <button onClick={newDrink}>newdrink</button>
+    </div>
+  );
+}
+export default App;
+
+// import Like from "./components/Like/Like";
+// let [clicked, setClick] = useState(false);
+{
+  /* <Like
         color={clicked ? "red" : "black"}
         click={() => {
           if (clicked === false) {
@@ -20,11 +41,8 @@ function App() {
             setClick(false);
           }
         }}
-      ></Like>
-    </div>
-  );
+      ></Like> */
 }
-export default App;
 
 // import Button from "./components/Button/Button";
 
