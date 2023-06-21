@@ -1,41 +1,14 @@
 // import Button from "./components/Button";
 // import ShowAlert from "./components/ShowAlert";
 // import ListGroup from "./components/ListGroup";
-import { useState } from "react";
-import { produce } from "immer";
-import Cart from "./Cart";
-import NavBar from "./NavBar";
+
+import Form from "./components/Form/Form";
 
 function App() {
-  let [cartItems, setCartItem] = useState(["product1", "product2"]);
-  let [colorItems, setColor] = useState(["red", "white", "black", "brown"]);
-
-  let check = () => {
-    setColor(produce(draf=>{
-
-      draf.pop();
-
-      draf.push('he');
-      draf.push('yo');
-      draf.pop();
-      draf.push('wo');
-      
-    }))
-  };
 
   return (
     <div>
-      <NavBar cartItemCount={cartItems.length}></NavBar>
-      <Cart
-        cartItem={cartItems}
-        clear={() => {
-          setCartItem([]);
-        }}
-      ></Cart>
-
-      <br />
-      {colorItems + ''}
-      <button onClick={check}> Check </button>
+      <Form></Form>
     </div>
   );
 }
