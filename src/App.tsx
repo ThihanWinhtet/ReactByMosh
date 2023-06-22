@@ -1,14 +1,13 @@
 // import Button from "./components/Button";
 // import ShowAlert from "./components/ShowAlert";
 // import ListGroup from "./components/ListGroup";
-
-import Form from "./components/Form/Form";
+import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
 
 function App() {
 
   return (
     <div>
-      <Form></Form>
+      <ExpenseTracker></ExpenseTracker>
     </div>
   );
 }

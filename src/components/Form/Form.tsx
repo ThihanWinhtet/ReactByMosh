@@ -1,7 +1,7 @@
 // import { FormEvent, useRef, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
-import { Schema, isValid, z } from "zod";
+import { z } from "zod";
 
 function Form() {
   let scheme = z.object({
