@@ -156,7 +156,7 @@ function ExpenseTracker() {
             </tbody>
           ) : (
             <tbody>
-              {filtered.map((item, index) => (
+              {filtered.map((item) => (
                 <tr key={item.id}>
                   <td>{item.description}</td>
                   <td>{item.amount}</td>
