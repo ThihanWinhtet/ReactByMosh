@@ -1,13 +1,24 @@
 // import Button from "./components/Button";
 // import ShowAlert from "./components/ShowAlert";
 // import ListGroup from "./components/ListGroup";
-import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
+import { useEffect, useRef } from "react";
+// import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
 
 function App() {
+  let ref = useRef<HTMLInputElement>(null)
+
+  useEffect(()=>{
+    if(ref.current) ref.current.focus();
+  });
+
+  useEffect(()=>{
+    document.title = 'My App'
+  });
 
   return (
     <div>
-      <ExpenseTracker></ExpenseTracker>
+      <input ref={ref} type="text" className="form-control" />
+      {/* <ExpenseTracker></ExpenseTracker> */}
     </div>
   );
 }
