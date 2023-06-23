@@ -1,70 +1,25 @@
-// import Button from "./components/Button";
-// import ShowAlert from "./components/ShowAlert";
-// import ListGroup from "./components/ListGroup";
-import { useEffect, useRef } from "react";
-// import ExpenseTracker from "./components/ExpenseTracker/ExpenseTracker";
+
+import { useEffect, useState } from "react";
+import ProductList from "./components/ProductList/ProductList";
 
 function App() {
-  let ref = useRef<HTMLInputElement>(null)
+
+
+  let [category, setCategory] = useState('');
 
   useEffect(()=>{
-    if(ref.current) ref.current.focus();
-  });
-
-  useEffect(()=>{
-    document.title = 'My App'
+    document.title = 'my app'
   });
 
   return (
     <div>
-      <input ref={ref} type="text" className="form-control" />
-      {/* <ExpenseTracker></ExpenseTracker> */}
+      <select name="" id="" className="form-control" onChange={(event)=>setCategory(event.target.value)}>
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="HouseHold">House Hold</option>
+      </select>
+      <ProductList category={category}></ProductList>
     </div>
   );
 }
 export default App;
-
-// import Like from "./components/Like/Like";
-// let [clicked, setClick] = useState(false);
-{
-  /* <Like
-        color={clicked ? "red" : "black"}
-        click={() => {
-          if (clicked === false) {
-            setClick(true);
-            console.log(clicked);
-          } else {
-            console.log(clicked);
-
-            setClick(false);
-          }
-        }}
-      ></Like> */
-}
-
-// import Button from "./components/Button/Button";
-
-// import { AiFillAlert } from "react-icons/ai";
-
-// function App() {
-//   let list = ["New York", "Paris", "Tokyo", "Koyto"];
-//   // let [call, callnum] = useState(false);
-//   return (
-//     <div>
-// <Button
-//         color="primary"
-//         click={() => {
-//           console.log("hello check");
-//         }}
-//       >
-//         Check
-//       </Button>
-//       <AiFillAlert color="blue"></AiFillAlert>
-//       {/* {call === true &&  <ShowAlert close={()=> callnum(false)}></ShowAlert>}
-//       <Button color="danger"  click={()=> callnum(true)}>hello button</Button> */}
-
-//       <ListGroup items={list} heading="Cities" onSelectedIndex={(item)=> item} onSelected={(item)=> console.log(item, 'lll')}/>
-//     </div>
-//   );
-// }
-// export default App;
